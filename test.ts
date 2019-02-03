@@ -1,4 +1,4 @@
-import ImmutableArrayHelpers from "../src";
+import ImmutableArrayHelpers from "./src";
 
 const TEST_ARRAY = [
   {
@@ -11,20 +11,24 @@ const Util = new ImmutableArrayHelpers(TEST_ARRAY);
 
 describe("Array Utils", () => {
   it("adds to the array", () => {
-    const d = Util.add({ id: 2, title: "No one" });
-
+    Util.add({ id: 2, title: "No one" });
+    const d = Util.getData();
     expect(d).toHaveLength(2);
+    expect(d[0].title).toBe("No one");
   });
 
   it("removes from the array", () => {
-    const d = Util.remove({ id: 2, title: "No one" });
+    Util.remove({ id: 2, title: "No one" });
+    const d = Util.getData();
 
     expect(d).toHaveLength(1);
     expect(d[0].title).toBe("Hello");
+    expect(d[1]).toBeFalsy();
   });
 
   it("updates item in the array", () => {
-    const d = Util.update({ id: 1, title: "No one" });
+    Util.update({ id: 1, title: "No one" });
+    const d = Util.getData();
 
     expect(d[0].title).toBe("No one");
   });

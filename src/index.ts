@@ -21,7 +21,9 @@ export default class ImmutableArrayHelpers<T, K = StringTMap<T>> {
 
   public add(x: K): K[] {
     if (x) {
-      return [x, ...this.data];
+      const list = [x, ...this.data];
+      this.data = list;
+      return list;
     } else {
       return this.data;
     }
@@ -30,16 +32,24 @@ export default class ImmutableArrayHelpers<T, K = StringTMap<T>> {
   public remove(removed: K, key?: string): K[] {
     let id = key ? key : "id";
 
-    return this.data.filter((t: K) => {
+    const list = this.data.filter((t: K) => {
       if (t[id]) {
         return t[id] !== removed[id] && t;
       }
     });
+
+    this.data = list;
+
+    return list;
   }
 
   public update(updated: K, key?: string): K[] {
     let id = key ? key : "id";
 
-    return this.data.map(t => (t[id] !== t[id] ? t : updated));
+    const list = this.data.map(t => (t[id] !== t[id] ? t : updated));
+
+    this.data = list;
+
+    return list;
   }
 }
