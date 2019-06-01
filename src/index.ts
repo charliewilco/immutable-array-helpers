@@ -8,7 +8,17 @@ interface Generic extends StringTMap<any> {
   id?: any;
 }
 
+/**
+ * A class to define data
+ * @class ImmutableArrayHelpers
+ */
+
 export default class ImmutableArrayHelpers<T, K = StringTMap<T>> {
+  /**
+   *
+   * @param data Initial array
+   * @type Array
+   */
   constructor(data: K[]) {
     this.data = data;
   }
