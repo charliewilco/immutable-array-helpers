@@ -1,7 +1,0 @@
-{
-  "extends": "tslint:recommended",
-  "rules": {
-    "member-ordering": false,
-    "interface-name": false
-  }
-}

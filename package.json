@@ -1,23 +1,32 @@
 {
-  "name": "immutable-array-helpers",
+  "name": "@charliewilco/immutable-array-helpers",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "lint": "tslint src/index.ts"
+    "test": "jest --runInBand --verbose",
+    "test:ci": "yarn test --ci --no-cache",
+    "build": "rollup -c",
+    "prepare": "yarn build",
+    "dev": "yarn build --watch"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
     "husky": "^3.0.5",
-    "jest": "^24.9.0",
     "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2",
-    "ts-jest": "^24.0.2",
     "tslint": "^5.19.0",
-    "typescript": "^3.6.2"
+    "esbuild": "^0.13.13",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-esbuild": "^4.6.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
   },
   "jest": {
     "preset": "ts-jest"
