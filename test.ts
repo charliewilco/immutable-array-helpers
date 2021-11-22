@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import ImmutableArrayHelpers from "./src";
+import { ImmutableArrayHelpers } from "./src";
 
 const TEST_ARRAY = [
   {
