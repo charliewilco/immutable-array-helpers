@@ -16,7 +16,7 @@
     "dev": "yarn build --watch"
   },
   "devDependencies": {
-    "esbuild": "^0.14.2",
+    "esbuild": "^0.16.12",
     "husky": "^7.0.4",
     "jest": "^27.4.3",
     "lint-staged": "^12.1.2",
